@@ -1,1 +1,2 @@
-###This is just a simple Rock-Paper-Scissors game which can be played from console against computer
+### This is just a simple Rock-Paper-Scissors game which can be played from console against computer
+soon GUI Version Coming
