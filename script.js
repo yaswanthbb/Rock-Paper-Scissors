@@ -1,26 +1,23 @@
+const start = document.getElementById("start")
 const rock = document.getElementById("rock")
 const paper = document.getElementById("paper")
 const scissors = document.getElementById("scissors")
 const gameResult = document.querySelector(".game-result") 
-
+const playerScore = document.getElementById("player-score")
+const computerScore = document.getElementById("computer-score")
+const winner = document.querySelector(".winner")
+let playerPoints = 0
+let computerPoints = 0
 
 const getComputerChoice = () =>{
-    const options = ['rock','paper','scissors']
+    const options = ['rock','scissors','paper']
     const randomNumber = Math.floor(Math.random()*3)
     return options[randomNumber]
 }
 
-let computerSelection = getComputerChoice()
-
-rock.addEventListener('click',()=>result("rock",computerSelection))
-paper.addEventListener('click',()=>result("paper",computerSelection))
-scissors.addEventListener('click',()=>result("scissors",computerSelection))
-
 const result = (playerSelection,computerSelection)=>{
-    console.log(playerSelection)
-    console.log(computerSelection)
     if((playerSelection == 'rock' && computerSelection =='scissors') || (playerSelection == 'paper' && computerSelection =='rock') || (playerSelection == 'scissors' && computerSelection =='paper')){
-        // playerPoints+=1
+        playerPoints+=1
         gameResult.textContent = `You Win ${playerSelection} beats ${computerSelection}`
         gameResult.style.color = "green"        
     }
@@ -31,32 +28,43 @@ const result = (playerSelection,computerSelection)=>{
     else{
         gameResult.textContent = `You Lose ${computerSelection} beats ${playerSelection}`
         gameResult.style.color = "red"
-        // computerPoints+=1
+        computerPoints+=1
+    }
+    playerScore.textContent = playerPoints
+    computerScore.textContent = computerPoints
+    if(playerPoints ===5 || computerPoints === 5){
+        game()
+    }
+
+}
+
+let computerSelection = getComputerChoice()
+
+
+rock.addEventListener('click',()=>{
+    if(playerPoints !== 5 && computerPoints !== 5 ){
+        result("rock",computerSelection)
+    }
+})
+paper.addEventListener('click',()=>{
+    if(playerPoints !== 5 && computerPoints !== 5 ){
+        result("paper",computerSelection)
+    }
+})
+scissors.addEventListener('click',()=>{
+    if(playerPoints !== 5 && computerPoints !== 5 ){
+        result("scissors",computerSelection)
+    }
+})
+
+
+const game = () =>{
+    if(playerPoints == 5){
+        winner.textContent = "You Won The Match !!"
+        winner.style.color = "green"
+    }
+    else{
+        winner.textContent = "You Lost The Match !!"
+        winner.style.color = "red"
     }
 }
-// const game = (num)=>{
-//     for (let index = 1; index <= num; index++) {
-//         let playerSelection = (prompt('Select Your Entry : ')).toLowerCase()
-//         let computerSelection = getComputerChoice()
-//         result(playerSelection,computerSelection)
-//     }
-//     console.log
-//     (`
-//     Player Points : ${playerPoints}
-//     Computer Points : ${computerPoints}
-//     `)
-//     if(playerPoints > computerPoints){
-//         console.log(`You win`)
-//     }
-//     else if (playerPoints == computerPoints){
-//         console.log(`The Game is a Tie`)
-//     }
-//     else{
-//         console.log('You Lose')
-//     }
-// }
-
-
-// let playerPoints = 0
-// let computerPoints = 0
-// game(noOfGames)
