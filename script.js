@@ -40,7 +40,7 @@ const game = (num)=>{
     }
 }
 
-const noOfGames = +prompt('No of Rounds you want play : ')
+
 let playerPoints = 0
 let computerPoints = 0
 game(noOfGames)

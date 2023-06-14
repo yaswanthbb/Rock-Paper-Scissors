@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Lacquer' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/a0ed474d98.js" crossorigin="anonymous"></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div class="bg-container">
+        <h1 class="heading">Rock Paper Scissors</h1>
+        <p class="para">Choose Your Move!</p>
+        <p class="description">First to score 5 points win the game</p>
+        <div class="score-card">
+            <div class="score">
+                <h2>Player</h2>
+                <p>0</p>
+            </div>
+            <div class="score">
+                <h2>Computer</h2>
+                <p>0</p>
+            </div>
+        </div>
+        <p class="game-result"></p>
+        <div class="selection-card">
+            <button class="btn-icon">
+                <img src="./images/rock.png" alt="rock">
+            </button>
+            <button class="btn-icon">
+                <img src="./images/paper.png" alt="paper">
+            </button>
+            <button class="btn-icon">
+                <img src="./images/scissor.png" alt="scissor">
+            </button>
+        </div>
+        <footer class="footer">
+            <p>
+              Copyright ©
+              <script>
+                document.write(new Date().getFullYear())
+              </script>
+              Yaswanth All rights reserved.
+            </p>
+            <a href="https://github.com/yaswanthbb" target="_blank">
+                <i class="fa-brands fa-github fa-xl icon"></i>
+          </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
